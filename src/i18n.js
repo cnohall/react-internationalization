@@ -21,6 +21,9 @@ i18n
     fallbackLng: 'en',
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
+      react: { 
+        useSuspense: false
+      },
       format: (value, format, lng) => {
         if (value instanceof Date) {
           return DateTime.fromJSDate(value).setLocale(lng).toLocaleString(DateTime[format])
