@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import WrappedApp from './WrappedApp';
 
 import './i18n';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <WrappedApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
