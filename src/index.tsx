@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import WrappedApp from './WrappedApp';
+import WrappedApp from './App';
 
 import './i18n';
 
