@@ -1,54 +1,34 @@
-import logo from './logo.svg';
+import { Suspense  } from 'react';
 import './App.css';
-import { useTranslation, Trans } from 'react-i18next';
-import { useState, Suspense  } from 'react';
-import Footer from './components/footer';
-
-const lngs = {
-  en: { nativeName: 'English' },
-  de: { nativeName: 'Deutsch' }
-};
+import NavigationBar from './components/navigationBar';
+import Header from './components/header';
+import Home from './components/home';
+import About from './components/about';
+import { useTranslation } from 'react-i18next';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 function App() {
   const { t, i18n } = useTranslation();
-  const [count, setCounter] = useState(0);
 
   return (
+    <Router>
+      <Switch>
+        <div className="App">
+          <NavigationBar/>
+          <Header t={t} i18n={i18n} />  
+          <Route exact={true} path="/" component={Home}/>
+          <Route path="/about" component={About}/>
+        </div>
+      </Switch>
+    </Router>
+  );
+}
+
+export default function WrappedApp() {
+  return (
     <Suspense fallback="...is loading">
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <div>
-            {Object.keys(lngs).map((lng) => (
-              <button key={lng} style={{ fontWeight: i18n.language === lng ? 'bold' : 'normal' }} type="submit" onClick={() => {
-                i18n.changeLanguage(lng);
-                setCounter(count + 1);
-              }}>
-                {lngs[lng].nativeName}
-              </button>
-            ))}
-          </div>
-          <p>
-            <i>{t('counter', { count })}</i>
-          </p>
-          <p>
-            <Trans i18nKey="description.part1">
-              Edit <code>src/App.js</code> and save to reload.
-            </Trans>
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {t('description.part2')}
-          </a>
-        </header>
-        <Footer t={t} />
-      </div>
+        <App/>
     </Suspense>
   );
 }
 
-export default App;

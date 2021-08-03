@@ -1,0 +1,22 @@
+{
+  "description": {
+    "part1": "修改 src/App.js 还有保存为了重新加载。",
+    "part2": "学习React"
+  },
+  "counter": "{{count}}次改了语言",
+  "counter_plural": "已经改了语言{{count}}次",
+  "header": {
+    "date": "今天是 {{date, DATE_HUGE}}",
+    "date_morning": "早上好! 今天是 {{date, DATE_HUGE}} | 今天愉快!",
+    "date_afternoon": "下午好! 今天是 {{date, DATE_HUGE}}",
+    "date_evening": "晚上好! 今天是 {{date, DATE_HUGE}}"
+  },
+  "about": {
+    "part1": "欢迎你来看看Good React Translations",
+    "part2": "这是一个实验"
+  },
+  "navbar": {
+    "home": "首页",
+    "about": "关于我们"
+  }
+}

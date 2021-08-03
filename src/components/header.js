@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import './footer.css';
+import './header.css';
 
 const getGreetingTime = (d = DateTime.now()) => {
     const split_afternoon = 12; // 24hr time to split the afternoon
@@ -13,10 +13,10 @@ const getGreetingTime = (d = DateTime.now()) => {
     return 'morning';
 }
 
-const Footer = ({ t }) => (
-  <div className="Footer">
-    <div>{t('footer.date', { date: new Date(), context: getGreetingTime() })}</div>
+const Header = ({ t }) => (
+  <div className="header p-4">
+    <h3>{t('header.date', { date: new Date(), context: getGreetingTime() })}</h3>
   </div>
 );
 
-export default Footer;
+export default Header;
